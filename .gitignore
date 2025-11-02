@@ -1,11 +1,7 @@
-# Virtual environments# Virtual environment
-
-venv/venv/
-
-env/env/
-
-ENV/ENV/
-
+# Virtual environments
+venv/
+env/
+ENV/
 .venv/
 
 # Python cache files
