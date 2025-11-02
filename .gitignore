@@ -1,0 +1,133 @@
+# Virtual environments# Virtual environment
+
+venv/venv/
+
+env/env/
+
+ENV/ENV/
+
+.venv/
+
+# Python cache files
+
+# Python cache files__pycache__/
+
+__pycache__/*.pyc
+
+*.pyc*.pyo
+
+*.pyo*.pyd
+
+*.pyd.Python
+
+.Python
+
+*.so# Database files
+
+*.db
+
+# OS files*.sqlite3
+
+.DS_Store
+
+.DS_Store?# Archive/dataset directories
+
+._*archive/
+
+.Spotlight-V100
+
+.Trashes# Model files (optional - uncomment if you don't want to track large model files)
+
+ehthumbs.db# *.h5
+
+Thumbs.db# *.pkl
+
+# *.joblib
+
+# IDE files
+
+.vscode/# Uploaded files
+
+.idea/uploads/*
+
+*.swp!uploads/.gitkeep
+
+*.swo
+
+*~# IDE files
+
+.vscode/
+
+# Database files (often large and contain user data).idea/
+
+*.db*.swp
+
+*.sqlite*.swo
+
+*.sqlite3
+
+# OS files
+
+# Large model files (uncomment if you don't want to track them).DS_Store
+
+# *.h5Thumbs.db
+
+# *.pkl
+
+# *.joblib# Logs
+
+# *.model*.log
+
+
+
+# Uploaded files and user content# Environment variables
+
+uploads/*.env
+!uploads/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Temporary files
+*.tmp
+*.temp
