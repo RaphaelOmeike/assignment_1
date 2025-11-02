@@ -1,22 +1,19 @@
-setuptools>=65.0.0
-wheel>=0.41.0
+setuptools
+wheel
 
 # Core ML and Data Processing
-tensorflow==2.20.0
-numpy>=1.21.0,<1.26.0
-pandas>=1.5.0,<2.2.0
-pillow>=9.0.0,<11.0.0
-opencv-python>=4.7.0,<4.9.0
+tensorflow
+numpy
+pandas
+pillow
+opencv-python
 
 # Web Framework
-flask>=2.2.0,<3.0.0
-werkzeug>=2.2.0,<3.0.0
-gunicorn>=21.2.0
-
-# Dataset Download (optional)
-kaggle>=1.5.0,<1.6.0
+flask
+werkzeug
+gunicorn
 
 # Image Processing and Visualization
-matplotlib>=3.6.0,<3.8.0
-scikit-learn>=1.2.0,<1.4.0
-seaborn>=0.11.0,<0.13.0
+matplotlib
+scikit-learn
+seaborn
