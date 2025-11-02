@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Emotion Detection</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Face Emotion Detection</h1>
+            <p>Upload your photo and discover your emotion!</p>
+        </div>
+
+        <div class="info-section">
+            <h3>How it works:</h3>
+            <p>Our AI analyzes your facial expression and identifies your current emotion. Simply upload a clear photo of your face and let our system detect your emotion! The system can detect 7 different emotions: happy, sad, angry, surprised, fearful, disgusted, and neutral.</p>
+        </div>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message {% if 'Error' in message or 'error' in message %}flash-error{% else %}flash-success{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+            <div class="form-group">
+                <label for="file">Upload Your Photo *</label>
+                <div class="file-upload">
+                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <label for="file" class="file-upload-label">
+                        <div class="file-upload-text">📸 Click to upload your photo</div>
+                        <div class="file-upload-hint">Supported formats: JPG, PNG, GIF, BMP (Max: 16MB)</div>
+                    </label>
+                </div>
+                <img id="imagePreview" class="preview-image" alt="Preview">
+            </div>
+
+            <button type="submit" class="submit-btn">🔍 Detect My Emotion</button>
+        </form>
+
+        <div class="footer">
+            <p><a href="/users">View All Submissions</a> | Made with ❤️ using AI</p>
+        </div>
+    </div>
+</body>
+</html>

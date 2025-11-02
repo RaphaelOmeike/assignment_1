@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All User Submissions</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👥 All User Submissions</h1>
+            <p>View all emotion detection results from users</p>
+        </div>
+
+        {% if users %}
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">{{ users|length }}</div>
+                <div class="stat-label">Total Submissions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Emotions Detected</div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <select id="emotionFilter">
+                <option value="">All Emotions</option>
+                <option value="angry">😠 Angry</option>
+                <option value="disgust">🤢 Disgust</option>
+                <option value="fear">😨 Fear</option>
+                <option value="happy">😊 Happy</option>
+                <option value="neutral">😐 Neutral</option>
+                <option value="sad">😢 Sad</option>
+                <option value="surprise">😲 Surprise</option>
+            </select>
+        </div>
+
+        <div class="users-grid" id="usersGrid">
+            {% for user in users %}
+            <div class="user-card" data-emotion="{{ user[4] }}">
+                <div class="user-emotion">
+                    <span class="emotion-emoji">
+                        {% if user[4] == 'angry' %}😠
+                        {% elif user[4] == 'disgust' %}🤢
+                        {% elif user[4] == 'fear' %}😨
+                        {% elif user[4] == 'happy' %}😊
+                        {% elif user[4] == 'neutral' %}😐
+                        {% elif user[4] == 'sad' %}😢
+                        {% elif user[4] == 'surprise' %}😲
+                        {% else %}🤔
+                        {% endif %}
+                    </span>
+                    <div class="emotion-name">{{ user[4].title() }}</div>
+                </div>
+                
+                <div class="user-details">
+                    <p><strong>Name:</strong> {{ user[1] }}</p>
+                    <p><strong>Email:</strong> {{ user[2] }}</p>
+                    <p><strong>Age:</strong> {{ user[3] }}</p>
+                    <p><strong>Confidence:</strong> {{ "%.1f"|format(user[5] * 100) }}%</p>
+                    
+                    <div class="confidence-bar">
+                        <div class="confidence-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="timestamp">
+                    📅 {{ user[7] }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="no-users">
+            <h3>No submissions yet</h3>
+            <p>Be the first to upload a photo and detect your emotion!</p>
+        </div>
+        {% endif %}
+
+        <div class="actions">
+            <a href="/" class="btn btn-primary">🔄 Add New Submission</a>
+        </div>
+    </div>
+</body>
+</html>

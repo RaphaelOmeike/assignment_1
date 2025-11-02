@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection Result</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Emotion Detection Result</h1>
+        </div>
+
+        <div class="result-card">
+            <span class="emotion-emoji">
+                {% if emotion == 'angry' %}😠
+                {% elif emotion == 'disgust' %}🤢
+                {% elif emotion == 'fear' %}😨
+                {% elif emotion == 'happy' %}😊
+                {% elif emotion == 'neutral' %}😐
+                {% elif emotion == 'sad' %}😢
+                {% elif emotion == 'surprise' %}😲
+                {% else %}🤔
+                {% endif %}
+            </span>
+            <div class="emotion-name">{{ emotion.title() }}</div>
+            <div class="confidence-score">Confidence: {{ "%.1f"|format(confidence * 100) }}%</div>
+            <div class="emotion-response">{{ response }}</div>
+        </div>
+
+        <div class="user-info">
+            <h3>👤 User Information</h3>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Detected Emotion:</strong> {{ emotion.title() }}</p>
+            <p><strong>Analysis Confidence:</strong> {{ "%.1f"|format(confidence * 100) }}%</p>
+        </div>
+
+        {% if all_predictions %}
+        <div class="predictions-breakdown">
+            <h3>📊 Detailed Emotion Analysis</h3>
+            {% for emotion_label, score in all_predictions.items() %}
+            <div class="prediction-bar">
+                <div class="prediction-label">
+                    <span>
+                        {% if emotion_label == 'angry' %}😠 Angry
+                        {% elif emotion_label == 'disgust' %}🤢 Disgust
+                        {% elif emotion_label == 'fear' %}😨 Fear
+                        {% elif emotion_label == 'happy' %}😊 Happy
+                        {% elif emotion_label == 'neutral' %}😐 Neutral
+                        {% elif emotion_label == 'sad' %}😢 Sad
+                        {% elif emotion_label == 'surprise' %}😲 Surprise
+                        {% else %}{{ emotion_label.title() }}
+                        {% endif %}
+                    </span>
+                    <span>{{ "%.1f"|format(score * 100) }}%</span>
+                </div>
+                <div class="prediction-progress">
+                    <div class="prediction-fill"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="actions">
+            <a href="/" class="btn btn-primary">🔄 Analyze Another Photo</a>
+            <a href="/users" class="btn btn-secondary">👥 View All Results</a>
+        </div>
+    </div>
+</body>
+</html>
